@@ -5,6 +5,7 @@ var bodyParser = require('body-parser');
 var sass = require('node-sass-middleware');
 var validator = require('express-validator');
 var session = require('express-session');
+var passport = require('passport');
 var config = require('./config');
 
 module.exports = function() {
@@ -23,6 +24,9 @@ module.exports = function() {
         saveUninitialized: true
     }));
     
+    app.use(passport.initialize());
+    app.use(passport.session());
+
     app.use(bodyParser.urlencoded({
         extended : true
     }));
