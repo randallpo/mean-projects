@@ -1,0 +1,38 @@
+[
+    {
+        "uname": "Messey",
+        "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore.",
+        "retweetCount": 10,
+        "create": ISODate("2019-02-14T07:26:31Z")
+    },
+    {
+        "uname": "Annette",
+        "text": "Ut enim ad minim veniam, quis nostrud exercitation ullamco labo ris nisi ut aliquip ex ea commodo consequat.",
+        "retweetCount": 8,
+        "create": ISODate("2019-02-14T07:26:31Z")
+    },
+    {
+        "uname": "Hazel",
+        "text": "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur Lorem.",
+        "retweetCount": 9,
+        "create": ISODate("2019-02-14T07:26:31Z")
+    },
+    {
+        "uname": "Petty",
+        "text": "Excepteur sint occaecat cupidatat non proidentUt enim ad minim veniam incididunt ut labore et dolore magna.",
+        "retweetCount": 5,
+        "create": ISODate("2019-02-14T07:26:31Z")
+    },
+    {
+        "uname": "Silvia",
+        "text": "Commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla.",
+        "retweetCount": 15,
+        "create": ISODate("2019-02-14T07:26:31Z")
+    },
+    {
+        "uname": "Hazel",
+        "text": "Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation.",
+        "retweetCount": 6,
+        "create": ISODate("2019-02-14T07:26:31Z")
+    }
+]
