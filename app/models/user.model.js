@@ -12,14 +12,17 @@ var userSchema = new Schema({
     email: {
         type: String, 
         index: true},
-    password: String,
+    password: {
+        type: String,
+        validate: [
+            function(password) {
+                return password && password.length >= 6;
+            }, 'Password must be at least 6 characters']},
     salt: {
-        salt: String
-    },
+        type: String},
     provider: {
         type:String,
-        required: 'Provider is required'
-    },
+        required: 'Provider is required'},
     provideerId: String,
     providerData: {},
     created: {
@@ -29,18 +32,18 @@ var userSchema = new Schema({
 
 userSchema.pre('save', function(next) {
     if (this.password) {
-        this.salt = new Buffer(crypto.randomBytes(16).toString('base64'), 'base64');
+        this.salt = new Buffer.from(crypto.randomBytes(16).toString('base64'), 'base64');
         this.password = this.hashPassword(this.password);
     }
     next();
 });
 
 userSchema.methods.hashPassword = function(password) {
-    return crypto.pbkdf2Sync(password, this.salt, 10000, 64).toString('base64');
+    return crypto.pbkdf2Sync(password, this.salt, 10000, 64, 'sha512').toString('base64');
 }
 
 userSchema.methods.authenticate = function(password) {
-    return this.password == this.hashPassword(password);
+    return this.password === this.hashPassword(password);
 }
 
 mongoose.model('User', userSchema);
