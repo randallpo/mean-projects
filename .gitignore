@@ -7767,3 +7767,9 @@ package-lock.json
 package-lock.json
 package-lock.json
 package-lock.json
+node_modules/passport-local/lib/index.js
+node_modules/passport-local/lib/strategy.js
+node_modules/passport-local/lib/utils.js
+node_modules/passport-local/LICENSE
+node_modules/passport-local/package.json
+node_modules/passport-local/README.md
