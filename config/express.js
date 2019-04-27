@@ -5,6 +5,7 @@ var bodyParser = require('body-parser');
 var sass = require('node-sass-middleware');
 var validator = require('express-validator');
 var session = require('express-session');
+var flash = require('connect-flash');
 var passport = require('passport');
 var config = require('./config');
 
@@ -24,6 +25,7 @@ module.exports = function() {
         saveUninitialized: true
     }));
     
+    app.use(flash());
     app.use(passport.initialize());
     app.use(passport.session());
 
