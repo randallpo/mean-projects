@@ -8,7 +8,7 @@ module.exports = function(app) {
 
     app.route('/login')
         .get(user.renderLogin)
-        .post(password.authenticate('local', {
+        .post(passport.authenticate('local', {
             successRedirect: '/',
             failureRedirect: '/login',
             failureFlash: true
