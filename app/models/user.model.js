@@ -47,3 +47,17 @@ userSchema.methods.authenticate = function(password) {
 }
 
 mongoose.model('User', userSchema);
+
+userSchema.statics.findUniqueUsername = function(username, suffix, callback) {
+    var _this = this;
+    var possibleUsername = username + (suffix || '');
+    _this.findOne({userName: possibleUsername}, function(err, user){
+        if (!err) {
+            if (!user) callback(possibleUsername);
+            else return _this.findUniqueUsername(username, (suffix || 0) + 1, callback);
+        }
+        else {
+            callback(null);
+        }
+    });
+}
