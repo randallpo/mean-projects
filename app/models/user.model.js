@@ -23,7 +23,7 @@ var userSchema = new Schema({
     provider: {
         type:String,
         required: 'Provider is required'},
-    provideerId: String,
+    providerId: String,
     providerData: {},
     created: {
         type: Date,
@@ -46,8 +46,6 @@ userSchema.methods.authenticate = function(password) {
     return this.password === this.hashPassword(password);
 }
 
-mongoose.model('User', userSchema);
-
 userSchema.statics.findUniqueUsername = function(username, suffix, callback) {
     var _this = this;
     var possibleUsername = username + (suffix || '');
@@ -61,3 +59,5 @@ userSchema.statics.findUniqueUsername = function(username, suffix, callback) {
         }
     });
 }
+
+mongoose.model('User', userSchema);

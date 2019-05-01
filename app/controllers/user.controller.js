@@ -1,3 +1,5 @@
+var User = require('mongoose').model('User');
+
 exports.renderLogin = function(req, res) {
     if (!req.user) {
         res.render('login', {
@@ -50,7 +52,6 @@ exports.signup = function(req, res, next) {
     }
 };
 
-var User = require('mongoose').model('User');
 exports.create = function(req, res, next) {
     var user = new User(req.body);
     user.save(function(err) {
@@ -155,7 +156,7 @@ exports.saveOAuthUserProfile = function(req, profile, done) {
                             if (err) {
                                 var message = getErrorMessage(err);
                                 req.flash('error', message);
-                                return res.redirect('/signup');
+                                //return res.redirect('/signup');
                             }
                             return done(err, user);
                         });

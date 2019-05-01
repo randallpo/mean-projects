@@ -12,14 +12,14 @@ module.exports = function() {
         passReqToCallback: true}, 
         function(req, accessToken, refreshToken, profile, done) {
             var providerData = profile._json;
-            provider.accessToken = accessToken;
-            provider.refreshToken = refreshToken;
+            providerData.accessToken = accessToken;
+            providerData.refreshToken = refreshToken;
 
             var providerUserProfile = {
                 firstName: profile.name.givenName,
                 lastName: profile.name.familyName,
-                email: profile.emails[0].value,
-                userName: profile.username,
+                email: profile.email,
+                username: profile.username,
                 provider: 'facebook',
                 providerId: profile.id,
                 providerData: providerData
