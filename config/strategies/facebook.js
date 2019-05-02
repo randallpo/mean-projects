@@ -8,7 +8,7 @@ module.exports = function() {
         clientID: config.facebook.clientID,
         clientSecret: config.facebook.clientSecret,
         callbackURL: config.facebook.callbackURL,
-        profileField: ['id', 'email', 'name'],
+        profileFields: ['id', 'email', 'name'],
         passReqToCallback: true}, 
         function(req, accessToken, refreshToken, profile, done) {
             var providerData = profile._json;
@@ -19,11 +19,15 @@ module.exports = function() {
                 firstName: profile.name.givenName,
                 lastName: profile.name.familyName,
                 email: profile.email,
-                username: profile.username,
+                userName: profile.username,
                 provider: 'facebook',
                 providerId: profile.id,
                 providerData: providerData
             };
+        console.log("given name  " + profile.name.givenName);
+        console.log("family name " + profile.name.familyName);
+        console.log("email       " + profile.email);
+        console.log("id          " + profile.id);
         user.saveOAuthUserProfile(req, providerUserProfile, done);
     
         }));    

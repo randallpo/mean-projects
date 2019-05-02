@@ -148,9 +148,9 @@ exports.saveOAuthUserProfile = function(req, profile, done) {
             if (err) return done(err);
             else {
                 if (!user) {
-                    var possibleUsername = profile.username || (profile.email ? profile.email.split('@')[0]: '')
+                    var possibleUsername = profile.userName || (profile.email ? profile.email.split('@')[0]: '')
                     User.findUniqueUsername(possibleUsername, null, function(availableUsername) {
-                        profile.username = availableUsername;
+                        profile.userName = availableUsername;
                         user = new User(profile);
                         user.save(function(err) {
                             if (err) {
